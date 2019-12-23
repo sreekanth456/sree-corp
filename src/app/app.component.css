@@ -1,0 +1,36 @@
+
+.toolbar{
+
+    background: blueviolet;
+
+}
+
+.logo{
+    display: flex;
+
+}
+
+.logo img{
+
+    width: 120px;
+
+}
+.spacer{
+    flex:1 1 auto;
+}
+
+.naviagtion{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.naviagtion a{
+
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+.naviagtion a:hover{
+    color:black;
+}
+ 

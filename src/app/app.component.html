@@ -1,3 +1,25 @@
 
+<mat-toolbar class="toolbar">
+
+  <mat-toolbar-row>
+    <div class="logo">
+      <img src="assets/images/logo_1.png" alt="logo">
+    </div>
+
+    <span class="spacer"></span>
+
+    <div class="naviagtion">
+
+      <a mat-button routerLink="/home" routerLinkActive="active" >Home</a>
+      <a mat-button routerLink="/about" routerLinkActive="active" >About</a>
+
+      <a mat-button routerLink="/authentic/sign-in" routerLinkActive="active" >Sign-In</a>
+      <a mat-button routerLink="/authentic/sign-up" routerLinkActive="active" >Sign-Up</a>
+
+    </div>
+    
+  </mat-toolbar-row>
+</mat-toolbar>
+
 
 <router-outlet></router-outlet>
