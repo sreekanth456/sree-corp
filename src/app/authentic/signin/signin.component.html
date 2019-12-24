@@ -8,7 +8,8 @@
     <form [formGroup]="signInDetails" (ngSubmit)="submit()">
     
       <p>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>UserName</mat-label>
           <input type="text" matInput [class.is-invalid]=" signInDetails.get('email').invalid && signInDetails.get('email').touched" placeholder="Username" formControlName="email" required>
           <mat-error *ngIf=" signInDetails.get('email').invalid && signInDetails.get('email').touched" >
               <span *ngIf=" signInDetails.get('email').errors ?.required"> User Name Required </span>
@@ -19,7 +20,8 @@
       </p>
     
       <p>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
           <input type="password" matInput [class.is-invalid]=" signInDetails.get('password').invalid && signInDetails.get('password').touched" placeholder="Password" formControlName="password" required>
         </mat-form-field>
     
