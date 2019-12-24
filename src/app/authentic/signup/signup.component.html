@@ -1,1 +1,88 @@
-<p>signup works!</p>
+
+
+<mat-card>
+    <mat-card-title>SignUp</mat-card-title>
+<mat-card-content>
+<form [formGroup]= "signUpDetails" (ngSubmit)="submit()">
+
+
+    <p>
+        <mat-form-field>
+          <input type="text" matInput [class.is-invalid]=" signUpDetails.get('firstName').invalid && signUpDetails.get('firstName').touched" placeholder="FirstName" formControlName="firstName">
+          <mat-error *ngIf=" signUpDetails.get('firstName').invalid && signUpDetails.get('firstName').touched" >
+              <span *ngIf=" signUpDetails.get('firstName').errors ?.required"> FirstName Required </span>
+              <span *ngIf=" signUpDetails.get('firstName').errors ?.minlength"> FirstName is Minimum Three Letters  </span>
+              <span *ngIf=" signUpDetails.get('firstName').errors ?.maxlength"> FirstName is Maximum Ten Letters  </span>
+
+          </mat-error>
+    
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input type="text" matInput [class.is-invalid]=" signUpDetails.get('lastName').invalid && signUpDetails.get('lastName').touched" placeholder="LastName" formControlName="lastName">
+          <mat-error *ngIf=" signUpDetails.get('lastName').invalid && signUpDetails.get('lastName').touched" >
+              <span *ngIf=" signUpDetails.get('lastName').errors ?.required"> lastName Required </span>
+              <span *ngIf=" signUpDetails.get('lastName').errors ?.minlength"> lastName is Minimum Three Letters  </span>
+              <span *ngIf=" signUpDetails.get('lastName').errors ?.maxlength"> lastName is Maximum Ten Letters  </span>
+
+          </mat-error>
+    
+        </mat-form-field>
+      </p>
+      
+    
+
+  <p>
+    <mat-form-field>
+      <input type="text" matInput [class.is-invalid]=" signUpDetails.get('email').invalid && signUpDetails.get('email').touched" placeholder="Username" formControlName="email">
+
+      <mat-error *ngIf=" signUpDetails.get('email').invalid && signUpDetails.get('email').touched" >
+          <span *ngIf=" signUpDetails.get('email').errors ?.required"> User Name Required </span>
+          <span *ngIf=" signUpDetails.get('email').errors ?.email"> User Name Is Valid </span>
+      </mat-error>
+
+    </mat-form-field>
+  </p>
+
+ 
+
+  <p>
+    <mat-form-field>
+      <input type="password" matInput [class.is-invalid]=" signUpDetails.get('password').invalid && signUpDetails.get('password').touched" placeholder="Password" formControlName="password">
+    </mat-form-field>
+
+    <mat-error *ngIf=" signUpDetails.get('password').invalid && signUpDetails.get('password').touched" >
+        <span *ngIf=" signUpDetails.get('password').errors ?.required"> Password Required </span>
+        <span *ngIf=" signUpDetails.get('password').errors ?.minlength"> Password is Minimum Five Letters </span>
+        <span *ngIf=" signUpDetails.get('password').errors ?.maxlength"> Password is Maximum Ten Letters </span>
+
+    </mat-error>
+  </p>
+
+  <p>
+    <mat-form-field>
+      <input type="password" matInput [class.is-invalid]=" signUpDetails.get('confirmPassword').invalid && signUpDetails.get('confirmPassword').touched" placeholder="Confirm Password" formControlName="confirmPassword">
+    </mat-form-field>
+
+    <mat-error *ngIf=" signUpDetails.get('confirmPassword').invalid && signUpDetails.get('confirmPassword').touched" >
+        <span *ngIf=" signUpDetails.get('confirmPassword').errors ?.required"> Confirm Password Required </span>
+        <span *ngIf=" signUpDetails.get('confirmPassword').errors ?.minlength"> Confirm Password is Minimum Five Letters </span>
+        <span *ngIf=" signUpDetails.get('confirmPassword').errors ?.maxlength"> Confirm Password is Maximum Ten Letters </span>
+
+    </mat-error>
+  </p>
+
+
+  <div class="button">
+
+    <button type="submit"  mat-button color="primary" (click)="login()" > I Have An Account</button>
+
+    <button type="submit" [disabled]=" ! signUpDetails.valid" mat-raised-button >Sign-Up</button>
+
+  </div>
+
+</form>
+</mat-card-content>
+</mat-card>

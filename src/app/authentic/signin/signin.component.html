@@ -1,1 +1,49 @@
-<p>signin works!</p>
+
+
+<div class="container">
+
+    <mat-card>
+        <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+    <form [formGroup]="signInDetails" (ngSubmit)="submit()">
+    
+      <p>
+        <mat-form-field>
+          <input type="text" matInput [class.is-invalid]=" signInDetails.get('email').invalid && signInDetails.get('email').touched" placeholder="Username" formControlName="email" required>
+          <mat-error *ngIf=" signInDetails.get('email').invalid && signInDetails.get('email').touched" >
+              <span *ngIf=" signInDetails.get('email').errors ?.required"> User Name Required </span>
+              <span *ngIf=" signInDetails.get('email').errors ?.email"> User Name Is Valid </span>
+          </mat-error>
+    
+        </mat-form-field>
+      </p>
+    
+      <p>
+        <mat-form-field>
+          <input type="password" matInput [class.is-invalid]=" signInDetails.get('password').invalid && signInDetails.get('password').touched" placeholder="Password" formControlName="password" required>
+        </mat-form-field>
+    
+        <mat-error *ngIf=" signInDetails.get('password').invalid && signInDetails.get('password').touched" >
+            <span *ngIf=" signInDetails.get('password').errors ?.required"> Password Required </span>
+            <span *ngIf=" signInDetails.get('password').errors ?.minlength"> Password is Minimum Five Letters </span>
+            <span *ngIf=" signInDetails.get('password').errors ?.maxlength"> Password is Maximum Ten Letters </span>
+    
+        </mat-error>
+      </p>
+    
+    
+      <div class="button">
+    
+        <button type="submit"  mat-button color="primary" (click)="register()" > Create A New Account</button>
+    
+        <button type="submit" [disabled]="! signInDetails.valid" mat-raised-button >Login</button>
+    
+      </div>
+    
+    </form>
+    </mat-card-content>
+    </mat-card>
+
+</div>
+
+
