@@ -1,0 +1,23 @@
+
+.container{
+
+    position: relative;
+    
+}
+
+.container .not-found{
+
+    text-align: center;
+    font-size: 25px;
+
+}
+
+.container h2 {
+    text-align: center;
+    color: red;
+}
+
+.container p{
+    text-align: center;
+}
+
